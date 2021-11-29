@@ -95,7 +95,8 @@ a {
 /* End of Navigation */
 main {
 	display: grid;
-	grid-template-columns: 27.22% 60.77%;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-areas: "side section";
 	grid-area: main;
 }
 section h1 {
@@ -111,12 +112,14 @@ section a:hover {
 }
 
 section {
-	order: 2;
+	grid-area: section;
+	padding-top: 1em;
+	padding-right: 5rem;
+	/* max-width: 40vw; */
 }
-section,
 aside {
 	padding-top: 1em;
-	padding-left: 3em;
+	padding-left: 5em;
 }
 
 aside h1 {
@@ -141,7 +144,7 @@ aside a:hover {
 	color: maroon;
 }
 aside {
-	order: 1;
+	grid-area: side;
 }
 
 footer p {
@@ -194,14 +197,16 @@ footer {
 	}
 
 	main {
-		display: grid;
 		grid-template-columns: 1fr;
+		grid-template-areas:
+			"section"
+			"side";
 	}
 	section {
-		order: 1;
+		grid-area: section;
 	}
 	aside {
-		order: 2;
+		grid-area: side;
 	}
 	section,
 	aside {
