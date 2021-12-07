@@ -47,31 +47,24 @@ a {
 	position: relative;
 	padding: 0;
 	margin: 0;
-}
-.main-menu ul li {
-	width: 20%;
-	float: left;
+	display: flex;
+	justify-content: space-evenly;
+	background-color: steelblue;
 }
 .main-menu ul ul {
 	display: none;
 	position: absolute;
 	top: 100%;
 }
+
 .main-menu ul ul li {
-	float: none;
 	width: 100%;
 }
+
 .main-menu ul li:hover > ul {
 	display: block;
-	width: 20%;
+	width: 19%;
 }
-
-.main-menu > ul::after {
-	content: "";
-	clear: both;
-	display: block;
-}
-
 .main-menu ul li a {
 	text-align: center;
 	display: block;
@@ -88,30 +81,40 @@ a {
 .main-menu ul li a:focus {
 	background-color: lightsteelblue;
 }
-/* End of Navigation */
-section h1 {
-	font-size: 2em;
-}
-.icon {
-	float: left;
-	padding-right: 1em;
-}
-.icon > p {
-	clear: left;
-}
-section h3 {
-	color: maroon;
-}
 
-section a:focus,
-section a:hover {
-	color: steelblue;
+/* End of Navigation */
+
+main {
+	display: flex;
+	/* flex-wrap: nowrap; */
+	flex-direction: row;
 }
 
 section {
-	width: 60.77%;
-	float: right;
+	order: 2;
+	flex-basis: 66%;
+	padding-bottom: 2em;
 }
+table {
+	white-space: wrap;
+}
+th,
+tr {
+	padding-bottom: 1em;
+}
+
+tbody tr:first-child {
+	vertical-align: top;
+}
+table caption {
+	font-size: 1.7em;
+	padding-bottom: 1em;
+}
+aside {
+	order: 1;
+	flex-basis: 25%;
+}
+
 section,
 aside {
 	padding-top: 1em;
@@ -138,24 +141,16 @@ aside a:focus,
 aside a:hover {
 	color: maroon;
 }
-aside {
-	width: 27.22%;
-	float: left;
-}
 
 footer p {
 	text-align: center;
 	font-size: 85%;
 	color: white;
 }
-footer p:nth-of-type(2) {
-	color: black;
-}
 footer {
 	background-color: steelblue;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
-	clear: both;
 }
 
 #mobile_menu {
@@ -190,23 +185,20 @@ footer {
 	header h2 {
 		font-size: 200%;
 	}
-	section {
-		float: none;
-		width: 93.3334%;
-	}
-	aside {
-		float: none;
+	main {
+		flex-direction: column;
 	}
 	section {
 		padding-left: 1em;
 		padding-right: 2em;
+		order: 1;
 	}
 	aside {
 		padding-left: 2em;
 		padding-right: 2em;
+		order: 2;
 	}
 }
-
 @media only screen and (max-width: 479px) {
 	header h2,
 	header h3 {
@@ -218,5 +210,20 @@ footer {
 
 	section p {
 		font-size: 100%;
+	}
+	th,
+	td {
+		display: block;
+	}
+	thead {
+		display: none;
+	}
+	tr td:first-child {
+		font-weight: bold;
+		font-size: 110%;
+		background-color: gray;
+	}
+	tfoot {
+		display: none;
 	}
 }
